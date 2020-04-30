@@ -1,4 +1,5 @@
 $colorblu: #435999;
+$p100: 100%;
 
 @mixin starter {
   margin: 0;
@@ -6,7 +7,7 @@ $colorblu: #435999;
   box-sizing: border-box;
 }
 @mixin centratura{
-  width: 85%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -25,6 +26,15 @@ $colorblu: #435999;
 
 }
 
+@mixin buttonSignin{
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 14px;
+  background: $colorblu;
+  border-radius: 7px;
+  border: none;
+}
+
 
 *{
   @include starter;
@@ -32,7 +42,7 @@ $colorblu: #435999;
 
 body{
   color: #58402c;
-  font-family: 'armoniaSansProCyr-Regular', Arial, sans-serif
+  font-family: 'HarmoniaSansProCyr-Regular', Arial, sans-serif;
 }
 
 header{
@@ -45,13 +55,14 @@ a{
 
 .centratura{
   @include centratura;
-  background-color: red;
-  height: 100%;
+
 }
   .header-container{
-    @include flexBetween;
     width: 100%;
-    height: 100%;
+    height: 75px;
+    border-bottom: 1px solid #58402c;
+    @include flexBetween;
+
 
 
   .header-left{
@@ -63,8 +74,10 @@ a{
 
   .header-right{
     width: 40%;
-
+    height: 100%;
+    @include flexBetween;
     ul{
+      width: 100%;
       display: flex;
       list-style: none;
       justify-content: space-between;
@@ -100,17 +113,166 @@ a{
 }
 
 .jumbotron{
-  width: 100%;
+  width: $p100;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
 
   .jumbo-sx{
     width: 45%;
+
     h1{
       font-size: 50px;
       line-height: 70px;
-      text-align: left
+      text-align: left;
+      margin-bottom: 30px;
     }
     p{
+      font-size: 22px;
+      line-height: 33px;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    .buttons-sign{
+      margin-bottom: 35px;
 
+      .or{
+        margin-left: 15px;
+        margin-right: 15px;
+        }
+        a{
+          @include buttonSignin;
+          &:hover{
+            background: #233569;
+            transition: 0.5s
+          }
+            img{
+              vertical-align: middle;
+            }
+        }
+      }
+  }
+  .jumbo-dx{
+    width: 55%;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+// SEZ 1
+.sez-two-same{
+  width: 100%;
+  background-color: #ffe7d2;
+  padding: 30px 0;
+
+  .first-div-same{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:first-child{
+    border-bottom: 1px solid #bdb5af;
+    }
+    &:nth-child(2){
+      padding-bottom: 50px;
+    }
+
+    .sez-two-header{
+      width: 70%;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 60px;
+      font-size: 22px;
+    }
+    .three-images{
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 80px;
+      img{
+        width: 150px;
+        max-width: 280px;
+        height: 140px;
+      }
+    }
+    .single-image{
+      width: 20%;
+      text-align: center;
+      margin-bottom: 60px;
+      img{
+        max-width: 280px;
+        width: 100%;
+      }
+    }
+    .sez-two-footer{
+
+    }
+  }
+}
+// SCALETTA section
+.scaletta{
+  width: 100%;
+
+  .scaletta-row{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    padding: 50px 0;
+    figure{
+      width: 45%;
+      padding: 0 10px;
+      img{
+        width: 100%;
+        max-height: 470px;
+      }
+    }
+    .float-container{
+      padding: 0 10px;
+      width: 45%;
+      height: 490px;
+      .text-div{
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h2{
+          font-size: 26px;
+          line-height: 39px;
+
+        }
+        p{
+          font-size: 22px;
+          line-height: 33px;
+        }
+        a{
+          color: #30488f;
+          font-size: 22px;
+          &:after{
+            font-family: "Font Awesome 5 Free";
+            content: "  \f061";
+            font-weight: 900;
+            vertical-align: middle;
+            font-size: 16px;
+          }
+        }
+        figure{
+          width: 270px;
+        }
+      }
+
+    }
+    .right{
+      display: flex;
+      justify-content: flex-end;
+      .text-div{
+        figure{
+          align-self: flex-end;
+          margin-right: 20px;
+        }
+      }
     }
   }
 }

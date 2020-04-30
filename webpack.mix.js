@@ -4,6 +4,6 @@ mix
   .js('src/app.js', 'dist/')
   .sass('src/app.scss', 'dist/')
   .copy('src/index.html', 'dist/');
-  .options({
-    processCssUrls:false
-  });
+  // .options({
+  //   processCssUrls:false
+  // });

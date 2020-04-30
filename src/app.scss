@@ -1,0 +1,116 @@
+$colorblu: #435999;
+
+@mixin starter {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@mixin centratura{
+  width: 85%;
+  margin: 0 auto;
+}
+
+@mixin linkproperties {
+  color: inherit;
+  text-decoration: none;
+}
+
+@mixin flexBetween{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin buttonHeader{
+
+}
+
+
+*{
+  @include starter;
+}
+
+body{
+  color: #58402c;
+  font-family: 'armoniaSansProCyr-Regular', Arial, sans-serif
+}
+
+header{
+  height: 75px;
+}
+
+a{
+  @include linkproperties;
+}
+
+.centratura{
+  @include centratura;
+  background-color: red;
+  height: 100%;
+}
+  .header-container{
+    @include flexBetween;
+    width: 100%;
+    height: 100%;
+
+
+  .header-left{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .header-right{
+    width: 40%;
+
+    ul{
+      display: flex;
+      list-style: none;
+      justify-content: space-between;
+      font-size: 14px;
+      line-height: 35px;
+
+      li{
+        cursor: pointer;
+        &:hover{
+          color: $colorblu;
+        }
+        img{
+          vertical-align: middle;
+        }
+      }
+
+      .button{
+        padding: 0 20px;
+        background-color: #fff;
+        border-radius: 7px;
+        color: $colorblu;
+        font-weight: bold;
+        border: 1px solid $colorblu;
+
+        &:hover{
+          background-color: $colorblu;
+          color: #fff;
+          transition: 1s;
+        }
+      }
+    }
+  }
+}
+
+.jumbotron{
+  width: 100%;
+
+  .jumbo-sx{
+    width: 45%;
+    h1{
+      font-size: 50px;
+      line-height: 70px;
+      text-align: left
+    }
+    p{
+
+    }
+  }
+}

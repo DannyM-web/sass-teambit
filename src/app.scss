@@ -21,10 +21,16 @@ $p100: 100%;
   justify-content: space-between;
   align-items: center;
 }
+@mixin flexColumn{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 @mixin buttonHeader{
 
 }
+
 
 @mixin buttonSignin{
   padding: 10px 20px;
@@ -35,7 +41,20 @@ $p100: 100%;
   border: none;
 }
 
+@mixin orMargin{
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
+@mixin rightArrow{
+  font-family: "Font Awesome 5 Free";
+  content: "  \f061";
+  font-weight: 900;
+  vertical-align: middle;
+  font-size: 16px;
+}
+
+// ________________________________________________
 *{
   @include starter;
 }
@@ -137,8 +156,7 @@ a{
       margin-bottom: 35px;
 
       .or{
-        margin-left: 15px;
-        margin-right: 15px;
+        @include orMargin;
         }
         a{
           @include buttonSignin;
@@ -151,6 +169,14 @@ a{
             }
         }
       }
+    > a{
+        &:after{
+          @include rightArrow;
+        }
+        &:hover{
+          color: $colorblu;
+        }
+    }
   }
   .jumbo-dx{
     width: 55%;
@@ -251,11 +277,7 @@ a{
           color: #30488f;
           font-size: 22px;
           &:after{
-            font-family: "Font Awesome 5 Free";
-            content: "  \f061";
-            font-weight: 900;
-            vertical-align: middle;
-            font-size: 16px;
+            @include rightArrow;
           }
         }
         figure{
@@ -273,6 +295,90 @@ a{
           margin-right: 20px;
         }
       }
+    }
+  }
+}
+// review section
+.review{
+  width: 100%;
+  background-color: #ffe7d2;
+  padding: 40px 0;
+  @include flexColumn;
+  .title-review{
+    text-align: center;
+    width: 30%;
+    h2{
+      font-size: 40px;
+      line-height: 60px;
+    }
+  }
+  .box-review{
+    width: 30%;
+    max-width: 628px;
+    margin: 35px auto;
+    padding: 20px 20px 20px 40px;
+    border: 1px solid #bdb5af;
+    border-radius: 7px;
+    background: #fff;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+    position: relative;
+    .author{
+
+      display: flex;
+      justify-content: flex-start;
+      .author-img{
+        display: flex;
+        img{
+          width: 50px;
+          height: auto;
+          margin-right: 10px;
+        }
+      }
+      .author-name{
+        display: flex;
+        flex-direction: column;
+        font-size: 12px;
+        span:first-child{
+          color:$colorblu;
+        }
+      }
+    }
+    &:after{
+      content: "\f10e";
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      display: block;
+      font-size: 50px;
+      color: $colorblu;
+      position: absolute;
+      top: -14px;
+      left: -14px;
+      z-index: 10;
+    }
+  }
+  .buttons-review{
+    .or{
+      @include orMargin;
+    }
+    a{
+      @include buttonSignin;
+      &:hover{
+        background: #233569;
+        transition: 0.5s
+      }
+        img{
+          vertical-align: middle;
+        }
+      }
+  }
+  > a{
+    &:after{
+      @include rightArrow;
+    }
+    &:hover{
+      color: $colorblu;
     }
   }
 }

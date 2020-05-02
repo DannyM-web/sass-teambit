@@ -1,91 +1,33 @@
 $colorblu: #435999;
 $p100: 100%;
-
-@mixin starter {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-@mixin centratura{
-  width: 70%;
-  margin: 0 auto;
-}
-
-@mixin linkproperties {
-  color: inherit;
-  text-decoration: none;
-}
-
-@mixin flexBetween{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-@mixin flexColumn{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-@mixin buttonHeader{
-
-}
-
-
-@mixin buttonSignin{
-  padding: 10px 20px;
-  color: #fff;
-  font-size: 14px;
-  background: $colorblu;
-  border-radius: 7px;
-  border: none;
-}
-
-@mixin orMargin{
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-@mixin rightArrow{
-  font-family: "Font Awesome 5 Free";
-  content: "  \f061";
-  font-weight: 900;
-  vertical-align: middle;
-  font-size: 16px;
-}
+$generalColor: #58402c;
+@import "partials/mixin";
+@import "partials/general";
 
 // ________________________________________________
-*{
-  @include starter;
-}
 
-body{
-  color: #58402c;
-  font-family: 'HarmoniaSansProCyr-Regular', Arial, sans-serif;
-}
 
-header{
+//   |||| NAVBAR ||||
+
+.navbar{
+  background-color: white;
+  width: 100%;
   height: 75px;
-}
+  position: fixed;
+  z-index: 100;
 
-a{
-  @include linkproperties;
-}
-
-.centratura{
-  @include centratura;
-
-}
-  .header-container{
-    width: 100%;
-    height: 75px;
-    border-bottom: 1px solid #58402c;
-    @include flexBetween;
-
-
+.header-container{
+  width: 70%;
+  height: 75px;
+  border-bottom: 1px solid #58402c;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%);
+  @include flexBetween;
+  align-items: center;
 
   .header-left{
-    width: 50%;
+    width: 30%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -95,8 +37,9 @@ a{
     width: 40%;
     height: 100%;
     @include flexBetween;
+    align-items: center;
     ul{
-      width: 100%;
+      width: $p100;
       display: flex;
       list-style: none;
       justify-content: space-between;
@@ -114,13 +57,7 @@ a{
       }
 
       .button{
-        padding: 0 20px;
-        background-color: #fff;
-        border-radius: 7px;
-        color: $colorblu;
-        font-weight: bold;
-        border: 1px solid $colorblu;
-
+        @include buttonHeader;
         &:hover{
           background-color: $colorblu;
           color: #fff;
@@ -130,7 +67,8 @@ a{
     }
   }
 }
-
+}
+//    |||| JUMBOTRON ||||
 .jumbotron{
   width: $p100;
   margin-top: 100px;
@@ -181,21 +119,20 @@ a{
   .jumbo-dx{
     width: 55%;
     img{
-      width: 100%;
+      width: $p100;
     }
   }
 }
 
-// SEZ 1
+//  ||||   SEZ 1 ||||
 .sez-two-same{
-  width: 100%;
+  width: $p100;
   background-color: #ffe7d2;
   padding: 30px 0;
 
   .first-div-same{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    width: $p100;
+    @include flexColumn;
     align-items: center;
     &:first-child{
     border-bottom: 1px solid #bdb5af;
@@ -213,8 +150,8 @@ a{
     }
     .three-images{
       width: 60%;
-      display: flex;
-      justify-content: space-between;
+      @include flexBetween;
+      align-items: center;
       margin-bottom: 80px;
       img{
         width: 150px;
@@ -236,9 +173,9 @@ a{
     }
   }
 }
-// SCALETTA section
+//  ||||  SCALETTA section  ||||
 .scaletta{
-  width: 100%;
+  width: $p100;
 
   .scaletta-row{
     width: 85%;
@@ -260,8 +197,7 @@ a{
       .text-div{
         width: 60%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
+        @include flexColumn;
         justify-content: space-between;
 
         h2{
@@ -298,12 +234,13 @@ a{
     }
   }
 }
-// review section
+// ||||  review section ||||
 .review{
-  width: 100%;
+  width: $p100;
   background-color: #ffe7d2;
   padding: 40px 0;
   @include flexColumn;
+  align-items: center;
   .title-review{
     text-align: center;
     width: 30%;
@@ -337,8 +274,7 @@ a{
         }
       }
       .author-name{
-        display: flex;
-        flex-direction: column;
+        @include flexColumn;
         font-size: 12px;
         span:first-child{
           color:$colorblu;
@@ -380,5 +316,63 @@ a{
     &:hover{
       color: $colorblu;
     }
+  }
+}
+
+// |||||  FOOTER |||||
+footer{
+  padding: 100px 0;
+}
+.footer-container{
+  width: 100%;
+  @include flexBetween;
+
+  .footer-sx{
+    width: 30%;
+    display: flex;
+    .logo-smile{
+      margin-right: 10px;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+    }
+    .logo-text{
+      font-size: 12px;
+      line-height: 24px;
+      a{
+        color: $colorblu;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .footer-dx{
+    width: 70%;
+    @include flexBetween;
+    .footer-list{
+      width: calc(100% / 5);
+      span{
+        display: inline-block;
+        font-size: 18px;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+      ul{
+        line-height: 35px;
+        font-size: 14px;
+        list-style: none;
+        a{
+          &:hover{
+            color: $colorblu;
+          }
+        }
+        a.arrow:after{
+          @include rightArrow;
+        }
+      }
+    }
+
   }
 }

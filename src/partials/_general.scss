@@ -1,0 +1,20 @@
+*{
+  @include starter;
+}
+
+body{
+  color: $generalColor;
+  font-family: 'HarmoniaSansProCyr-Regular', Arial, sans-serif;
+}
+
+header{
+  height: 75px;
+}
+
+a{
+  @include linkproperties;
+}
+
+.centratura{
+  @include centratura;
+}
